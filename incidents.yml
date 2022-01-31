@@ -1,0 +1,52 @@
+---
+error-budget:
+  availability-target: 99.5
+  single-risk-acceptable-threshold: 0.25
+incidents:
+  - description: A configuration mishap reduces capacity; causing overload and dropped requests
+    estimated-time-to-detect: 30
+    estimated-time-to-repair: 120
+    estimated-time-to-fail: 120
+    percentage-impact: 0.2
+  - description: A new release breaks a small set of requests; not detected for a day; quick rollback when detected.
+    estimated-time-to-detect: 1440
+    estimated-time-to-repair: 30
+    estimated-time-to-fail: 90
+    percentage-impact: 0.02
+  - description: A new release breaks a sizeable subset of requests; unfamiliar rollback procedure extends outage
+    estimated-time-to-detect: 5
+    estimated-time-to-repair: 120
+    estimated-time-to-fail: 180
+    percentage-impact: 0.5
+  - description: Unnoticed growth in usage triggers overload; service collapses.
+    estimated-time-to-detect: 5
+    estimated-time-to-repair: 120
+    estimated-time-to-fail: 365
+    percentage-impact: 1
+  - description: Operator is slow to debug and root cause bug due to noisy alerting
+    estimated-time-to-detect: 240
+    estimated-time-to-repair: 10
+    estimated-time-to-fail: 180
+    percentage-impact: 0.15
+  - description: Operator accidentally deletes database; restore from backup is required
+    estimated-time-to-detect: 5
+    estimated-time-to-repair: 510
+    estimated-time-to-fail: 1460
+    percentage-impact: 1
+  - description: Provision for Cloud provider single-zone VM/network outage
+    estimated-time-to-detect: 5
+    estimated-time-to-repair: 40
+    estimated-time-to-fail: 365
+    percentage-impact: 0.5
+  - description: Provision for Cloud provider regional VM/network outage
+    estimated-time-to-detect: 2
+    estimated-time-to-repair: 30
+    estimated-time-to-fail: 730
+    percentage-impact: 1
+risks:
+  - description: ETTD++ per riskcatalog (e.g., +30m due to operational overload)
+    increased-ettd-minutes: 30
+  - description: ETTR++ per riskcatalog (e.g., +5m due to lack of playbooks)
+    increased-ettr-minutes: 5
+  - description: ETTF increase per risk (e.g, all risks +10% more frequent due to lack of postmortems AI follow-up)
+    increased-ettf-percentage: 0.1
