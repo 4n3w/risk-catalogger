@@ -1,6 +1,6 @@
 module github.com/vmware-tanzu-labs/risk-catalogger
 
-go 1.17
+go 1.19
 
 require (
 	github.com/charmbracelet/bubbles v0.10.2

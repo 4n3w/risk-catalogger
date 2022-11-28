@@ -2,7 +2,7 @@ package riskcatalog_test
 
 import (
 	"github.com/stretchr/testify/require"
-	"switcher/pkg/riskcatalog"
+	"github.com/vmware-tanzu-labs/risk-catalogger/pkg/riskcatalog"
 	"testing"
 )
 

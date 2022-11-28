@@ -147,7 +147,7 @@ func BuildParagraph() *widgets.Paragraph {
 	return p
 }
 
-func RiskCatalogParagraph() *widgets.Paragraph {
+func CatalogParagraph() *widgets.Paragraph {
 	p := widgets.NewParagraph()
 	p.Text = "ETTD: Estimated Time To Detect: (minutes) How long it takes someone to notice the service is broken.\n"
 	p.Text += "ETTD: Estimated Time To Repair: (minutes) How long it takes someone to repair the service.\n"

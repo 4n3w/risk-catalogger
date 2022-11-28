@@ -35,7 +35,7 @@ func main() {
 	riskCatalogTable := riskcatalog.BuildRiskCatalogTable(rc)
 	riskCatalogList := riskcatalog.BuildRiskCatalogList(rc)
 	riskFactorTable := riskcatalog.BuildRiskFactorTable(rc)
-	riskFactorTableParagraph := riskcatalog.RiskCatalogParagraph()
+	riskFactorTableParagraph := riskcatalog.CatalogParagraph()
 	stackedRisksTable := riskcatalog.BuildStackedRisksTable(rankedRisks)
 
 	sbc := riskcatalog.BuildStackedBarChart()

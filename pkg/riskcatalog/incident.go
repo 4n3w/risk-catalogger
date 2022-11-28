@@ -2,7 +2,7 @@ package riskcatalog
 
 import (
 	"gopkg.in/yaml.v3"
-	"io/ioutil"
+	"os"
 	"sort"
 )
 
@@ -87,12 +87,12 @@ func (rc RiskCatalog) TooBigThreshold() float32 {
 	return rc.ErrorBudget.MinutesPerYear() * rc.ErrorBudget.AcceptableThresholdPercentagePerRisk
 }
 
-// UnallocatedBudget  returns mins/yr
+// UnallocatedBudget  returns minutes/yr
 func (rc RiskCatalog) UnallocatedBudget() float32 {
 	return rc.ErrorBudget.MinutesPerYear() - rc.AcceptedMinutesOfRiskPerYear()
 }
 
-func (rc *RiskCatalog) ComputeRisk() []HasRisk {
+func (rc RiskCatalog) ComputeRisk() []HasRisk {
 	var sumOfProducts float32 = 0.0
 	var sumOfBadMinutes float32 = 0.0
 
@@ -119,7 +119,7 @@ func (rc *RiskCatalog) ComputeRisk() []HasRisk {
 
 func NewRiskCatalogFromFile(configFilePath string) (RiskCatalog, error) {
 	c := RiskCatalog{}
-	buf, err := ioutil.ReadFile(configFilePath)
+	buf, err := os.ReadFile(configFilePath)
 	if err != nil {
 		return c, err
 	}
