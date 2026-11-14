@@ -1,0 +1,24 @@
+error-budget:
+  availability-target: 99.9
+  single-risk-acceptable-threshold: 0.25
+incidents:
+  - description: A restart drops every request for 20 seconds, weekly and a bit
+    estimated-time-to-detect: 0
+    estimated-time-to-repair: 0.3333333
+    estimated-time-to-fail: 7.5
+    percentage-impact: 1
+  - description: A nightly job overloads the service | a quarter of requests fail
+    estimated-time-to-detect: 10
+    estimated-time-to-repair: 20.5
+    estimated-time-to-fail: 36.525
+    percentage-impact: 0.25
+  - description: The disk fills up and the service stops
+    estimated-time-to-detect: 60
+    estimated-time-to-repair: 120
+    estimated-time-to-fail: 365.25
+    percentage-impact: 1
+risks:
+  - description: Detection takes half a minute longer
+    increased-ettd-minutes: 0.5
+  - description: Every incident happens 10% more often
+    increased-ettf-percentage: 0.1
